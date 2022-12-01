@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void makeMove() {
-        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized * speedModifier;
+        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * speedModifier;
         dir *= Time.deltaTime;
         transform.Translate(dir);
         lookAtMouse();
