@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 425257907}
   - component: {fileID: 425257906}
   - component: {fileID: 425257908}
+  - component: {fileID: 425257909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -242,6 +243,23 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &425257909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425257903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bbe35ca5abcccff8621566f03e6a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 150
+  healRate: 10
+  maxHealth: 150
+  timeDelayToHeal: 5
+  shouldDestroy: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,13 +777,13 @@ MonoBehaviour:
   height: 84
   xOffset: 0
   yOffset: 0
-  mapRadius: 32
+  mapRadius: 38
   borderSize: 10
-  noiseScale: 5
-  noiseEffect: 50
+  noiseScale: 7
+  noiseEffect: 60
   squareSize: 1
   drawActiveMap: 0
-  roomThresholdSize: 10
+  roomThresholdSize: 0
   wallThresholdSize: 10
   hallRadius: 5
 --- !u!4 &1258493832
@@ -958,7 +976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdde286c44e1d46d3833d7351d354350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapGen: {fileID: 1258493831}
   en: {fileID: 7899483554371290092, guid: 8aca3308ca5fb4298b7d9b6ca40d06e0, type: 3}
+  spawnRate: 3
 --- !u!4 &1704544754
 Transform:
   m_ObjectHideFlags: 0

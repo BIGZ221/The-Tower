@@ -9,11 +9,12 @@ public class HealthController : MonoBehaviour
     public float healRate;
     public float maxHealth;
     public float timeDelayToHeal;
+    public bool shouldDestroy = true;
 
     private float timeLastDamaged;
 
     void Update() {
-        if (health < 0) {
+        if (health < 0 && shouldDestroy) {
             Destroy(gameObject);
         }
         if (Time.fixedTime - timeLastDamaged > timeDelayToHeal) {

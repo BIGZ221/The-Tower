@@ -1,12 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     public float speedModifier;
-
     public GameObject body;
+    HealthController healthController;
+
+    void Start() {
+        healthController = GetComponent<HealthController>();
+    }
+
+    void Update() {
+        if (healthController.health < 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 
     void FixedUpdate()
     {
@@ -30,7 +39,10 @@ public class PlayerController : MonoBehaviour {
         body.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public void Damage(float amount) {
-
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.GetComponent<enemyMovement>() != null) {
+            healthController.Damage(100);
+        }
     }
+
 }
